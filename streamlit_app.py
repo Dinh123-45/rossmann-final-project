@@ -79,13 +79,14 @@ left2, right2 = st.columns(2)
 st.subheader("Q3. Promo vs Sales (Boxplot)")
 
 fig, ax = plt.subplots()
-f.boxplot(column="Sales", by="Promo", ax=ax)
+f.boxplot(column="Sales", by="Promo", ax=ax, showfliers=False)
 ax.set_yscale("log")
-ax.set_title("Sales with/without Promo (log scale)")
+ax.set_title("Sales with/without Promo (log scale, no outliers)")
 ax.set_xlabel("Promo (0=No, 1=Yes)")
 ax.set_ylabel("Sales (log)")
 fig.suptitle("")
 st.pyplot(fig)
+
 
 # ===== Q6 =====
 with right2:
