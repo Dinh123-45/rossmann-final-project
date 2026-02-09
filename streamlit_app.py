@@ -117,6 +117,18 @@ with right3:
     plt.xlabel("Avg Sales")
     st.pyplot(fig)
 
+st.subheader("Q3. Promo vs Sales (Boxplot)")
+
+fig, ax = plt.subplots()
+f.boxplot(column="Sales", by="Promo", ax=ax)
+ax.set_title("Sales with/without Promo")
+ax.set_xlabel("Promo (0=No, 1=Yes)")
+ax.set_ylabel("Sales")
+fig.suptitle("")  # bỏ title mặc định của pandas boxplot
+
+st.pyplot(fig)
+
+
 st.divider()
 st.subheader("Data preview")
 st.dataframe(f.head(50))
