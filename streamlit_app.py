@@ -86,6 +86,14 @@ ax.set_ylabel("Sales")
 fig.suptitle("")  # bỏ title mặc định của pandas boxplot
 
 st.pyplot(fig)
+fig, ax = plt.subplots()
+f.boxplot(column="Sales", by="Promo", ax=ax, showfliers=False)  # <-- ẩn outlier
+ax.set_title("Sales with/without Promo")
+ax.set_xlabel("Promo (0=No, 1=Yes)")
+ax.set_ylabel("Sales")
+fig.suptitle("")
+st.pyplot(fig)
+
 
 
 # ===== Q6 =====
