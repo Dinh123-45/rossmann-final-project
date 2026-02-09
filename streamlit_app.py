@@ -76,14 +76,17 @@ st.divider()
 left2, right2 = st.columns(2)
 
 # ===== Q3 =====
-with left2:
-    st.subheader("Q3. Promo vs Sales (Boxplot)")
-    fig = plt.figure()
-    f.boxplot(column="Sales", by="Promo")
-    plt.title("Sales with/without Promo")
-    plt.suptitle("")
-    plt.ylabel("Sales")
-    st.pyplot(fig)
+st.subheader("Q3. Promo vs Sales (Boxplot)")
+
+fig, ax = plt.subplots()
+f.boxplot(column="Sales", by="Promo", ax=ax)
+ax.set_title("Sales with/without Promo")
+ax.set_xlabel("Promo (0=No, 1=Yes)")
+ax.set_ylabel("Sales")
+fig.suptitle("")  # bỏ title mặc định của pandas boxplot
+
+st.pyplot(fig)
+
 
 # ===== Q6 =====
 with right2:
@@ -117,16 +120,6 @@ with right3:
     plt.xlabel("Avg Sales")
     st.pyplot(fig)
 
-st.subheader("Q3. Promo vs Sales (Boxplot)")
-
-fig, ax = plt.subplots()
-f.boxplot(column="Sales", by="Promo", ax=ax)
-ax.set_title("Sales with/without Promo")
-ax.set_xlabel("Promo (0=No, 1=Yes)")
-ax.set_ylabel("Sales")
-fig.suptitle("")  # bỏ title mặc định của pandas boxplot
-
-st.pyplot(fig)
 
 
 st.divider()
